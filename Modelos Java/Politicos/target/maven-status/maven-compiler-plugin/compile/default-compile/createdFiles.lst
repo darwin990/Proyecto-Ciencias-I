@@ -1,0 +1,5 @@
+com\mycompany\politicos\Modelo\Politico.class
+com\mycompany\politicos\Main.class
+com\mycompany\politicos\Controlador\Controlador.class
+com\mycompany\politicos\Modelo\Modelo.class
+com\mycompany\politicos\Vista\Vista.class
