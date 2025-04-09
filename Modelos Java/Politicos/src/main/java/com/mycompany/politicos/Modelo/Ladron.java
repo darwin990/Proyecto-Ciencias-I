@@ -6,17 +6,16 @@ package com.mycompany.politicos.Modelo;
 
 /**
  *
- * @author 57320
+ * @author moral
  */
 import java.time.LocalDate;
-import java.time.Period;
 
-public class Politico {
+public class Ladron {
     private int id;
-    private int dineroRobado; // en millones de rubros
+    private int dineroRobado;
     private LocalDate fechaNacimiento;
 
-    public Politico(int id, int dineroRobado, LocalDate fechaNacimiento) {
+    public Ladron(int id, int dineroRobado, LocalDate fechaNacimiento) {
         this.id = id;
         this.dineroRobado = dineroRobado;
         this.fechaNacimiento = fechaNacimiento;
@@ -34,15 +33,8 @@ public class Politico {
         return fechaNacimiento;
     }
 
-    public int getEdad() {
-        return Period.between(fechaNacimiento, LocalDate.now()).getYears();
-    }
-
     @Override
     public String toString() {
-        return "ID: " + id +
-               ", Dinero robado: " + dineroRobado +
-               ", Edad: " + getEdad() +
-               ", Fecha de nacimiento: " + fechaNacimiento;
+        return "ID: " + id + ", Robado: " + dineroRobado + ", Nacimiento: " + fechaNacimiento;
     }
 }

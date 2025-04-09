@@ -1,5 +1,13 @@
-com\mycompany\politicos\Modelo\Politico.class
+com\mycompany\politicos\Modelo\AlgoritmoOrdenamiento.class
+com\mycompany\politicos\Modelo\QuickSort.class
+com\mycompany\politicos\Vista\VistaPoliticos.class
 com\mycompany\politicos\Main.class
+com\mycompany\politicos\Modelo\SelectionSort.class
+com\mycompany\politicos\Modelo\MergeSort.class
 com\mycompany\politicos\Controlador\Controlador.class
-com\mycompany\politicos\Modelo\Modelo.class
-com\mycompany\politicos\Vista\Vista.class
+com\mycompany\politicos\Modelo\Ladron.class
+com\mycompany\politicos\Vista\VistaLadrones.class
+com\mycompany\politicos\Modelo\BubbleSort.class
+com\mycompany\politicos\Modelo\InsertionSort.class
+com\mycompany\politicos\Modelo\Politico.class
+com\mycompany\politicos\Modelo\Resultado.class
