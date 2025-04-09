@@ -137,6 +137,20 @@ private:
             vec[minIndex] = temp;
         }
     }
+
+    void insertionSort(vector<Politico>& fila, bool ordenarPorEdad) {
+        for (size_t i = 1; i < fila.size(); ++i) {
+            Politico actual = fila[i];
+            int j = i - 1;
+            while (j >= 0 &&
+                   ((ordenarPorEdad && fila[j].edad > actual.edad) ||
+                    (!ordenarPorEdad && fila[j].dineroRobado > actual.dineroRobado))) {
+                fila[j + 1] = fila[j];
+                j--;
+            }
+            fila[j + 1] = actual;
+        }
+    }
 };
 
 // =======================
