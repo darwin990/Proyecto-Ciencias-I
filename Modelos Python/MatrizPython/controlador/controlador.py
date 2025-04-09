@@ -1,5 +1,5 @@
-from ..modelo.politico import Politico
-from ..modelo.ladron import Ladron
+from modelo.politico import Politico
+from modelo.ladron import Ladron
 
 class Controlador:
     def __init__(self, algoritmos_ordenamiento):

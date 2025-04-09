@@ -2,12 +2,12 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import time
 
-from ..modelo.bubble_sort import BubbleSort
-from ..modelo.selection_sort import SelectionSort
-from ..modelo.merge_sort import MergeSort
-from ..modelo.insertion import InsertionSort
-from ..modelo.quicksort import QuickSort
-from ..controlador.controlador import Controlador
+from modelo.bubble_sort import BubbleSort
+from modelo.selection_sort import SelectionSort
+from modelo.merge_sort import MergeSort
+from modelo.insertion import InsertionSort
+from modelo.quicksort import QuickSort
+from controlador.controlador import Controlador
 
 
 class VistaLadronesOrdenamiento:
