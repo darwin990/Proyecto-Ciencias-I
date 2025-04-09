@@ -1,26 +1,25 @@
-class QuickSortMatrix:
+class QuickSort:
     def __init__(self):
         self.iteraciones = 0
 
-    def sort(self, matrix, key=lambda x: x):
+    def sort(self, arr, key=lambda x: x):
         self.iteraciones = 0
-        for row in matrix:
-            self._quicksort(row, 0, len(row) - 1, key)
-        return matrix
+        self._quicksort(arr, 0, len(arr) - 1, key)
+        return arr
 
-    def _quicksort(self, row, low, high, key):
+    def _quicksort(self, arr, low, high, key):
         if low < high:
-            pi = self._partition(row, low, high, key)
-            self._quicksort(row, low, pi - 1, key)
-            self._quicksort(row, pi + 1, high, key)
+            pi = self._partition(arr, low, high, key)
+            self._quicksort(arr, low, pi - 1, key)
+            self._quicksort(arr, pi + 1, high, key)
 
-    def _partition(self, row, low, high, key):
-        pivot = key(row[high])
+    def _partition(self, arr, low, high, key):
+        pivot = key(arr[high])
         i = low - 1
         for j in range(low, high):
             self.iteraciones += 1
-            if key(row[j]) < pivot:
+            if key(arr[j]) < pivot:
                 i += 1
-                row[i], row[j] = row[j], row[i]
-        row[i + 1], row[high] = row[high], row[i + 1]
+                arr[i], arr[j] = arr[j], arr[i]
+        arr[i + 1], arr[high] = arr[high], arr[i + 1]
         return i + 1

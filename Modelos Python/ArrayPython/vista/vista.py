@@ -6,6 +6,8 @@ from ..modelo.bubble_sort import BubbleSort
 from ..modelo.selection_sort import SelectionSort
 from ..modelo.politico import Politico
 from ..modelo.merge_sort import MergeSort
+from ..modelo.insertion_sort import InsertionSort
+from ..modelo.quicksort import QuickSort
 from ..controlador.controlador import Controlador
 
 class VistaOrdenamiento:
@@ -16,7 +18,9 @@ class VistaOrdenamiento:
           self.algoritmos = {
     "MergeSort": MergeSort(),
     "BubbleSort": BubbleSort(),
-    "SelectionSort": SelectionSort()
+    "SelectionSort": SelectionSort(),
+    "InsertionSort": InsertionSort(),
+    "QuickSort": QuickSort()
           }
   
           # Inputs

@@ -5,6 +5,8 @@ import time
 from ..modelo.bubble_sort import BubbleSort
 from ..modelo.selection_sort import SelectionSort
 from ..modelo.merge_sort import MergeSort
+from ..modelo.insertion import InsertionSort
+from ..modelo.quicksort import QuickSort
 from ..controlador.controlador import Controlador
 
 
@@ -13,10 +15,12 @@ class VistaLadronesOrdenamiento:
         self.root = root
         self.root.title("Simulador de Ordenamiento de Ladrones en Matriz")
 
-        self.algoritmos = {
-            "MergeSort": MergeSort(),
-            "BubbleSort": BubbleSort(),
-            "SelectionSort": SelectionSort()
+        self.algoritmos = {    
+        "MergeSort": MergeSort(),
+        "BubbleSort": BubbleSort(),
+        "SelectionSort": SelectionSort(),
+        "InsertionSort": InsertionSort(),
+        "QuickSort": QuickSort()
         }
 
         self.controlador = Controlador(self.algoritmos)
