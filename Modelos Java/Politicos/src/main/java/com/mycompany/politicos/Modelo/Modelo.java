@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.politicos.Modelo;
 
-/**
- *
- * @author 57320
- */
 import java.util.*;
 
 public class Modelo {
@@ -53,20 +45,23 @@ public class Modelo {
     }
 
     public void ordenarArray(int algoritmo) {
-        if (algoritmo == 1)
-            bubbleSort(arrayPoliticos, false); // Ordenar por dinero robado
-        else
-            selectionSort(arrayPoliticos, false);
+        switch (algoritmo) {
+            case 1 -> bubbleSort(arrayPoliticos, false);      // Por dinero robado
+            case 2 -> selectionSort(arrayPoliticos, false);
+            case 3 -> insertionSort(arrayPoliticos, false);
+            case 4 -> quickSort(arrayPoliticos, 0, arrayPoliticos.size() - 1, false);
+        }
     }
 
     public void ordenarMatriz(int algoritmo) {
         for (List<Politico> fila : matrizPoliticos) {
             if (algoritmo == 1)
-                bubbleSort(fila, false);
-            else
-                selectionSort(fila, false);
+                bubbleSort(fila, true); // Ordenar por edad
+            else if (algoritmo == 2)
+                selectionSort(fila, true);
         }
 
+        // Ordenar por columnas (por edad)
         for (int j = 0; j < m; j++) {
             for (int i = 0; i < k - 1; i++) {
                 int minIndex = i;
@@ -110,18 +105,45 @@ public class Modelo {
             Collections.swap(lista, i, minIdx);
         }
     }
-    
-    private void insertionSort() {
-        int n = politicos.size();
+
+    private void insertionSort(List<Politico> lista, boolean ordenarPorEdad) {
+        int n = lista.size();
         for (int i = 1; i < n; i++) {
-            Politico aux = politicos.get(i);
+            Politico aux = lista.get(i);
             int j = i - 1;
 
-            while (j >= 0 && politicos.get(j).dineroRobado > aux.dineroRobado) {
-                politicos.set(j + 1, politicos.get(j));
+            while (j >= 0 && ((ordenarPorEdad && lista.get(j).edad > aux.edad) || (!ordenarPorEdad && lista.get(j).dineroRobado > aux.dineroRobado))) {
+                lista.set(j + 1, lista.get(j));
                 j--;
             }
-            politicos.set(j + 1, aux);
+            lista.set(j + 1, aux);
         }
+    }
+
+    private void quickSort(List<Politico> lista, int low, int high, boolean ordenarPorEdad) {
+        if (low < high) {
+            int pi = partition(lista, low, high, ordenarPorEdad);
+            quickSort(lista, low, pi - 1, ordenarPorEdad);
+            quickSort(lista, pi + 1, high, ordenarPorEdad);
+        }
+    }
+
+    private int partition(List<Politico> lista, int low, int high, boolean ordenarPorEdad) {
+        Politico pivot = lista.get(high);
+        int i = low - 1;
+
+        for (int j = low; j < high; j++) {
+            boolean condicion = ordenarPorEdad
+                    ? lista.get(j).edad < pivot.edad
+                    : lista.get(j).dineroRobado < pivot.dineroRobado;
+
+            if (condicion) {
+                i++;
+                Collections.swap(lista, i, j);
+            }
+        }
+
+        Collections.swap(lista, i + 1, high);
+        return i + 1;
     }
 }
