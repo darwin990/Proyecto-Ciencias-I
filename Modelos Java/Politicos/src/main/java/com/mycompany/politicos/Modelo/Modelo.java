@@ -110,4 +110,18 @@ public class Modelo {
             Collections.swap(lista, i, minIdx);
         }
     }
+    
+    private void insertionSort() {
+        int n = politicos.size();
+        for (int i = 1; i < n; i++) {
+            Politico aux = politicos.get(i);
+            int j = i - 1;
+
+            while (j >= 0 && politicos.get(j).dineroRobado > aux.dineroRobado) {
+                politicos.set(j + 1, politicos.get(j));
+                j--;
+            }
+            politicos.set(j + 1, aux);
+        }
+    }
 }
