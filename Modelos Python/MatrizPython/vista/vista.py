@@ -88,7 +88,7 @@ class VistaLadronesOrdenamiento:
         self.tree.delete(*self.tree.get_children())
         self.tree.insert("", "end", values=(
             algoritmo_nombre,
-            round(fin - inicio, 4),
+            format(fin - inicio, ".10f"),
             iteraciones
         ))
 

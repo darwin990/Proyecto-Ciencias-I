@@ -101,7 +101,7 @@ class VistaOrdenamiento:
               self.tree.insert("", "end", values=(
                   algoritmo_nombre,
                   caso,
-                  round(fin - inicio, 4),
+                  format(fin - inicio, ".10f"),
                   controlador.algoritmos[algoritmo_nombre].iteraciones
               ))
   
